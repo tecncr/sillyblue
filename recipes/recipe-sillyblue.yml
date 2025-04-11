@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: sillyblue
+description: A Fedora Silverblue bootable OCI image made with BlueBuild, with the only purpose of figuring out how to add evdi back to main-kernel images
+base-image: ghcr.io/ublue-os/silverblue-main
+image-version: 41
+modules:
+  - from-file: common/silverblue-main.yml
