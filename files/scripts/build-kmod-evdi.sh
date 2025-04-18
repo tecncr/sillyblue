@@ -6,7 +6,7 @@ ARCH="$(rpm -E '%_arch')"
 KERNEL="$(rpm -q kernel --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 RELEASE="$(rpm -E '%fedora')"
 
-cp /tmp/ublue-os-akmods-addons/rpmbuild/SOURCES/negativo17-fedora-multimedia.repo /etc/yum.repos.d/
+curl -o /etc/yum.repos.d/negativo17-fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo
 
 if [[ "${FEDORA_MAJOR_VERSION}" -ge 42 ]]; then
   if dnf search displaylink | grep -qv "displaylink"; then
