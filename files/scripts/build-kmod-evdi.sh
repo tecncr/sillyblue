@@ -8,15 +8,6 @@ RELEASE="$(rpm -E '%fedora')"
 
 curl -o /etc/yum.repos.d/negativo17-fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo
 
-if [[ "${FEDORA_MAJOR_VERSION}" -ge 42 ]]; then
-  if dnf search displaylink | grep -qv "displaylink"; then
-    echo "Skipping build of evdi; displaylink not yet provided by negativo17"
-    exit 0
-  fi
-fi
-
-set -e pipefail
-
 ### BUILD evdi (succeed or fail-fast with debug output)
 export CFLAGS="-fno-pie -no-pie"
 dnf install -y \
